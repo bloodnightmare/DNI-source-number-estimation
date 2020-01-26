@@ -75,7 +75,6 @@ for snri = 1:length(SNR)
 %         V2 = V2(:,I2); %由大到小排列特征值对应的特征向量矩阵
 
 %%%%%%%%%%%%牛顿插值
-        %截断误差选择很重要
         Rf = 1;
         [ k ] = Newton_NOS( EVA,Rf );
         [ k_gaijin  ] = Newton_NOS( EVA.*(log(EVA).^2),Rf );
@@ -148,7 +147,7 @@ for snri = 1:length(SNR)
     SNew_gaijin(snri)=length(find(kN_gaijin(snri,1:ii)==num)) / ii;
     SAIC(snri)=length(find(kA(snri,1:ii)==num+1)) / ii;
     SMDL(snri)=length(find(kM(snri,1:ii)==num+1)) / ii;
-    SGDE(snri)=length(find(Ns_est==num))/ii;  %估计到的信号源个数
+    SGDE(snri)=length(find(Ns_est==num))/ii;  
     SET(snri) = length(find(k_ET(snri,1:ii)==num))/ii;%阈值法
     SES(snri) = length(find(kES(snri,1:ii)==num))/ii;%特征子空间分解法
     
