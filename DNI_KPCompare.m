@@ -71,6 +71,7 @@ for kpi = 1:length(KP)
         V = V(:,I); %由大到小排列特征值对应的特征向量矩阵
 
 %%%%%%%%%%%%牛顿插值
+        Rf = 1;
         [ k ] = Newton_NOS( EVA,Rf );
         [ k_gaijin  ] = Newton_NOS( EVA.*(log(EVA).^2),Rf );
         
